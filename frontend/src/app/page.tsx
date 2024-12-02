@@ -8,6 +8,5 @@ async function getDataFromApi() {
 
 export default async function Home() {
   const data = await getDataFromApi();
-  console.log(data);
   return <CountriesPage countries={data} />;
 }

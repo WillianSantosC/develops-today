@@ -46,6 +46,7 @@ export const BordersInfoWrapper = styled("div", {
 
     "& div": {
       display: "flex",
+      flexDirection: "column",
       justifyContent: "space-around",
       width: "100%",
       marginTop: "1rem",

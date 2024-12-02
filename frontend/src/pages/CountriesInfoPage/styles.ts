@@ -15,7 +15,7 @@ export const BordersWrapper = styled("main", {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
+    width: { base: "100%", _mdMI: "70%" },
     height: "15rem",
     overflow: "scroll",
     overflowX: "hidden",
