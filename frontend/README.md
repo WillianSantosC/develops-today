@@ -26,6 +26,8 @@ after that run the application:
 pnpm dev
 ```
 
+Note that you will need to install [pnpm](https://pnpm.io/installation) if you don't already have it installed.
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.

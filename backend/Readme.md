@@ -13,19 +13,19 @@ This project uses lot of stuff as:
 
 ## Getting Started
 
-First, run the development server:
+First, install the projects dependencies:
+
+```bash
+pnpm install
+```
+
+after that run the application:
 
 ```bash
 pnpm dev
 ```
 
 Note that you will need to install [pnpm](https://pnpm.io/installation) if you don't already have it installed.
-
-or you can start the application using docker:
-
-```bash
-docker compose up -d
-```
 
 Open [http://localhost:3000/doc](http://localhost:3001/doc) with your browser to see the API documentation.
 
