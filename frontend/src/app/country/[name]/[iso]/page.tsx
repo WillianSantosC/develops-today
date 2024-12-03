@@ -1,6 +1,7 @@
+import { notFound } from "next/navigation";
+
 import CountriesInfoPage from "@/pages/CountriesInfoPage";
 import { CountriesDataProps } from "@/components/CountriesCard";
-import { FlagDataProps } from "@/components/InfoCard";
 
 type ParamsProps = {
   params: {
@@ -23,7 +24,7 @@ async function getCountryBorders(params: { iso: string }) {
 async function getCountryFlag(params: { iso: string }) {
   const countryFlag = await fetch(
     `${process.env.API_URL}/country/${params.iso}/flag`,
-  );
+  ).catch((err) => err);
 
   return countryFlag.json();
 }
@@ -31,7 +32,7 @@ async function getCountryFlag(params: { iso: string }) {
 async function getCountryHistoricalPopulation(params: { name: string }) {
   const countryHistoricalPopulation = await fetch(
     `${process.env.API_URL}/country/${params.name}`,
-  );
+  ).catch((err) => err);
 
   return countryHistoricalPopulation.json();
 }
@@ -50,8 +51,11 @@ export async function generateStaticParams() {
 
 export default async function InfoPage({ params }: ParamsProps) {
   const borders = await getCountryBorders(params);
-  const flag: FlagDataProps = await getCountryFlag(params);
+  const flag = await getCountryFlag(params);
   const population = await getCountryHistoricalPopulation(params);
+  if (flag.message || population.message) {
+    notFound();
+  }
 
   const infoCard = {
     name: params.name.replaceAll("%20", " "),
