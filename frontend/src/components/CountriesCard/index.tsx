@@ -17,7 +17,7 @@ const CountriesCard = ({ data }: CountriesCardProps) => {
   const [searchValue, setSearchValue] = useState("");
   const [filteredCountries, setFilteredCountries] = useState(data);
 
-  const handleSearch = (event) => {
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
 
     if (searchValue) {
