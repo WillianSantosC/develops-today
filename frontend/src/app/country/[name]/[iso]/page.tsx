@@ -29,7 +29,6 @@ async function getCountryFlag(params: { iso: string }) {
 }
 
 async function getCountryHistoricalPopulation(params: { name: string }) {
-  console.log("Country name ==========>>>", params.name);
   const countryHistoricalPopulation = await fetch(
     `${process.env.API_URL}/country/${params.name}`,
   );
@@ -57,14 +56,14 @@ export default async function InfoPage({ params }: ParamsProps) {
   const infoCard = {
     name: params.name.replaceAll("%20", " "),
     iso: params.iso,
-    url: flag.data.flag,
+    url: flag?.data?.flag,
   };
 
   return (
     <CountriesInfoPage
       bordersInfo={borders.borders}
       infoCardData={infoCard}
-      chartData={population.data.populationCounts}
+      chartData={population?.data?.populationCounts}
     />
   );
 }

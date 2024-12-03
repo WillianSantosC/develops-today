@@ -37,11 +37,11 @@ import * as S from "./styles";
 
 const BarChart = ({ population }: BarChartProps) => {
   const data = {
-    labels: population.map((data) => data.year),
+    labels: population?.map((data) => data.year),
     datasets: [
       {
         label: "Population",
-        data: population.map((data) => data.value),
+        data: population?.map((data) => data.value),
         backgroundColor: "rgba(54, 162, 235, 0.2)",
         borderColor: "rgba(54, 162, 235, 1)",
         borderWidth: 1,

@@ -35,9 +35,6 @@ const CountriesCard = ({ data }: CountriesCardProps) => {
 
   return (
     <S.Wrapper>
-      <S.Label className="Label" htmlFor="search">
-        Search Country
-      </S.Label>
       <S.InputWrapper className="InputWrapper">
         <S.Input
           id="search"

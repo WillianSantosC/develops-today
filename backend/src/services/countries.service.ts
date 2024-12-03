@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { configDotenv } from 'dotenv';
+import axios from "axios";
+import { configDotenv } from "dotenv";
 configDotenv();
 
 export class CountriesService {
@@ -35,10 +35,9 @@ export class CountriesService {
         country: name,
       })
       .then((response) => response.data)
-      .catch((err) => {
-        throw new Error(err.body);
-      });
+      .catch((err) => err.status);
 
+    console.log(countryPopulationData);
     return countryPopulationData;
   }
 
@@ -48,9 +47,7 @@ export class CountriesService {
         iso2: code,
       })
       .then((response) => response.data)
-      .catch((err) => {
-        throw new Error(err.body);
-      });
+      .catch((err) => err.status);
 
     return countriesFlags;
   }
