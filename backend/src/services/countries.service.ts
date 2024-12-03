@@ -10,10 +10,8 @@ export class CountriesService {
       .get(`${process.env.DATE_NAGER_URL}/AvailableCountries`)
       .then((response) => response.data)
       .catch((err) => {
-        throw new Error(err.body);
+        throw new Error(err.message);
       });
-
-    console.log(countries.data);
 
     return countries;
   }
@@ -23,7 +21,7 @@ export class CountriesService {
       .get(`${process.env.DATE_NAGER_URL}/CountryInfo/${countryCode}`)
       .then((response) => response.data)
       .catch((err) => {
-        console.log(err);
+        throw new Error(err.message);
       });
 
     return countryBorders;
@@ -37,7 +35,6 @@ export class CountriesService {
       .then((response) => response.data)
       .catch((err) => err.status);
 
-    console.log(countryPopulationData);
     return countryPopulationData;
   }
 
