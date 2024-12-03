@@ -8,6 +8,8 @@ First, run the applications using docker compose:
 docker compose up -d
 ```
 
+Note that you will need to install [docker](https://docs.docker.com/desktop/setup/install/windows-install/) if you don't have it installed.
+
 After that you can access the backend documentation:
 
 Open [http://localhost:3001/doc](http://localhost:3001/doc) with your browser to see the API documentation.
