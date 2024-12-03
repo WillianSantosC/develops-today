@@ -1,0 +1,38 @@
+services:
+  node-api:
+    build:
+      dockerfile: ./backend/Dockerfile
+      context: .
+    container_name: node-api
+    restart: on-failure
+    expose:
+      - 3001
+    ports:
+      - 3001:3001
+    command: pnpm dev
+    logging:
+      options:
+        max-size: '10m'
+        max-file: '3'
+    env_file:
+      - ./backend/.env
+
+  next-front:
+    build:
+      dockerfile: ./frontend/Dockerfile
+      context: .
+    container_name: next-front
+    depends_on:
+      - node-api
+    restart: on-failure
+    expose:
+      - 3000
+    ports:
+      - 3000:3000
+    command: pnpm dev
+    logging:
+      options:
+        max-size: '10m'
+        max-file: '3'
+    env_file:
+      - ./frontend/.env
