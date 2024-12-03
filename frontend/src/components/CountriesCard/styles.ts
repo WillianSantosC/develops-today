@@ -38,3 +38,38 @@ export const CardInfoWrapper = styled("div", {
     width: "50%",
   },
 });
+
+export const Label = styled("label", {
+  base: {
+    fontSize: "token(font.sizes.small)",
+    color: "token(colors.black)",
+    cursor: "pointer",
+  },
+});
+
+export const Input = styled("input", {
+  base: {
+    color: "token(colors.black)",
+    fontFamily: "token(font.family)",
+    fontSize: "token(font.sizes.medium)",
+    background: "transparent",
+    border: "0",
+    outline: "none",
+    width: "100%",
+  },
+});
+
+export const InputWrapper = styled("div", {
+  base: {
+    display: "flex",
+    background: "token(colors.lightGray)",
+    borderRadius: "0.2rem",
+    padding: "0 token(spacings.xsmall)",
+    border: "0.2rem solid",
+    borderColor: "token(colors.lightGray)",
+
+    "&:focus-within": {
+      boxShadow: "0 0 0.5rem token(colors.primary)",
+    },
+  },
+});
