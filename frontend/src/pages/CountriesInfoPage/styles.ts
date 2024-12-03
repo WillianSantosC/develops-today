@@ -19,5 +19,6 @@ export const BordersWrapper = styled("main", {
     height: "15rem",
     overflow: "scroll",
     overflowX: "hidden",
+    marginBottom: "2rem",
   },
 });

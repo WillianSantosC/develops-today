@@ -28,13 +28,13 @@ async function getCountryFlag(params: { iso: string }) {
   return countryFlag.json();
 }
 
-// async function getCountryHistoricalPopulation(params: { name: string }) {
-//   const countryHistoricalPopulation = await fetch(
-//     `${process.env.API_URL}/country/${params.name}`,
-//   );
+async function getCountryHistoricalPopulation(params: { name: string }) {
+  const countryHistoricalPopulation = await fetch(
+    `${process.env.API_URL}/country/${params.name}`,
+  );
 
-//   return countryHistoricalPopulation.json();
-// }
+  return countryHistoricalPopulation.json();
+}
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
@@ -51,7 +51,7 @@ export async function generateStaticParams() {
 export default async function InfoPage({ params }: ParamsProps) {
   const borders = await getCountryBorders(params);
   const flag: FlagDataProps = await getCountryFlag(params);
-  // const population = await getCountryHistoricalPopulation(params);
+  const population = await getCountryHistoricalPopulation(params);
 
   const infoCard = {
     name: params.name,
@@ -60,6 +60,10 @@ export default async function InfoPage({ params }: ParamsProps) {
   };
 
   return (
-    <CountriesInfoPage bordersInfo={borders.borders} infoCardData={infoCard} />
+    <CountriesInfoPage
+      bordersInfo={borders.borders}
+      infoCardData={infoCard}
+      chartData={population.data.populationCounts}
+    />
   );
 }
