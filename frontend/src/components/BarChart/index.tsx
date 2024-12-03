@@ -1,9 +1,28 @@
 "use client";
-import dynamic from "next/dynamic";
-import "chart.js/auto";
-const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
-  ssr: false,
-});
+
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+);
 
 export type BarChartDataProps = {
   year: number;
@@ -28,15 +47,16 @@ const BarChart = ({ population }: BarChartProps) => {
         borderWidth: 1,
       },
     ],
-    options: {
-      responsive: true,
-      scales: {
-        y: {
-          ticks: { color: "green", beginAtZero: true },
-        },
-        x: {
-          ticks: { color: "red", beginAtZero: true },
-        },
+  };
+
+  const options = {
+    responsive: true,
+    scales: {
+      y: {
+        ticks: { color: "#FAFAFA", beginAtZero: true },
+      },
+      x: {
+        ticks: { color: "#FAFAFA", beginAtZero: true },
       },
     },
   };
@@ -44,7 +64,13 @@ const BarChart = ({ population }: BarChartProps) => {
   return (
     <S.Wrapper>
       <h1>Historical Population</h1>
-      <Bar id="chart" data={data} />
+      <Bar
+        aria-label="Historical Population Chart"
+        role="img"
+        id="chart"
+        data={data}
+        options={options}
+      />
     </S.Wrapper>
   );
 };
