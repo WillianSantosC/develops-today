@@ -25,6 +25,7 @@ const CountriesInfoPage = ({
     />
 
     <S.BordersWrapper>
+      <h1>Borders</h1>
       {bordersInfo.map((border) => (
         <CountryBorders key={border.countryCode} border={border} />
       ))}

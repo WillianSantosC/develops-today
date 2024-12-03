@@ -20,5 +20,9 @@ export const BordersWrapper = styled("main", {
     overflow: "scroll",
     overflowX: "hidden",
     marginBottom: "2rem",
+
+    "& h1": {
+      color: "token(colors.white)",
+    },
   },
 });
